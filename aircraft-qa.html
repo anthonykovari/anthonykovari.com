@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft Appearance Assessment Tool — Anthony Kovari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="bg-white text-black antialiased">
+    <div class="max-w-4xl mx-auto px-8 py-16">
+
+        <a href="index.html" class="text-sm hover:text-blue-600 transition-colors duration-75 mb-12 inline-block">← Back</a>
+
+        <h1 class="text-4xl md:text-5xl font-normal tracking-tighter mb-4">Aircraft Appearance Assessment Tool</h1>
+        <p class="text-sm text-gray-400 mb-8">React · Python · TensorFlow · United Airlines · 2023</p>
+
+        <p class="text-lg leading-relaxed text-gray-700 mb-10">
+            Built for United Airlines QA reviewers to assess aircraft appearance from social media posts. A multi-model ML pipeline automatically ingests posts, runs them through a garbage classifier, interior/exterior classifier, paint quality scorer (0–10), and sentiment analyzer before surfacing results in a React dashboard for triage and action.
+        </p>
+
+        <div class="mb-10">
+            <a
+              href="https://github.com/anthonykovari/CSE498-UAQA-GHUB"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm underline decoration-1 underline-offset-4 hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75"
+            >
+              github.com/anthonykovari/CSE498-UAQA-GHUB
+            </a>
+        </div>
+
+        <img
+          src="files/aircraft-qa-dashboard.png"
+          alt="Aircraft QA dashboard showing aircraft social media posts with ML-generated paint quality scores"
+          class="w-full border border-black"
+        />
+
+    </div>
+</body>
+</html>

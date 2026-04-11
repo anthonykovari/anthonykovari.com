@@ -1,337 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anthony Kovari</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      height: 100%;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #111;
-      overflow: hidden;
-      position: fixed;
-    }
-
-    /* ── Layout ── */
-    #app {
-      height: 100vh;
-      height: calc(var(--vh, 1vh) * 100);
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      padding: 48px 56px;
-    }
-
-    /* ── Header ── */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .name {
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      color: #111;
-    }
-
-    .contact {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .contact a {
-      font-size: 0.85rem;
-      color: #555;
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .contact a:hover { color: #111; }
-
-    /* ── Nav ── */
-    nav {
-      margin-top: auto;
-      margin-bottom: 0;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    nav ul li a {
-      font-size: 2.6rem;
-      font-weight: 600;
-      color: #111;
-      text-decoration: none;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      transition: color 0.15s;
-      cursor: pointer;
-    }
-
-    nav ul li a:hover { color: #888; }
-
-    /* ── Modal Overlay ── */
-    #overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.96);
-      z-index: 100;
-      padding: 48px 56px;
-      overflow-y: auto;
-    }
-
-    #overlay.active { display: flex; flex-direction: column; }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 48px;
-      flex-shrink: 0;
-    }
-
-    .modal-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #888;
-    }
-
-    .close-btn {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      color: #888;
-      cursor: pointer;
-      line-height: 1;
-      padding: 4px;
-      transition: color 0.15s;
-    }
-
-    .close-btn:hover { color: #111; }
-
-    .modal-body {
-      flex: 1;
-      max-width: 640px;
-    }
-
-    /* ── About content ── */
-    .about-text p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    /* ── Projects content ── */
-    .project-list {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-    }
-
-    .project-item h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .project-item h3 a {
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-      transition: border-color 0.15s;
-    }
-
-    .project-item h3 a:hover { border-color: #111; }
-
-    .project-item .meta {
-      font-size: 0.8rem;
-      color: #888;
-      margin-bottom: 8px;
-    }
-
-    .project-item p {
-      font-size: 0.9rem;
-      color: #444;
-      line-height: 1.7;
-    }
-
-    .project-video {
-      margin-top: 16px;
-      width: 100%;
-      max-width: 560px;
-      border-radius: 6px;
-      display: block;
-    }
-
-    /* ── Resume content ── */
-    .resume-link {
-      font-size: 0.95rem;
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 2px;
-      transition: border-color 0.15s;
-    }
-
-    .resume-link:hover { border-color: #111; }
-
-    /* ── Writings content ── */
-    .writing-list {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .writing-item a {
-      font-size: 0.95rem;
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-      transition: border-color 0.15s;
-    }
-
-    .writing-item a:hover { border-color: #111; }
-
-    .writing-item .date {
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 4px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Kovari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+        main {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        .modal-overlay {
+            display: none !important;
+        }
+        .modal-overlay.active {
+            display: flex !important;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white text-black antialiased overflow-hidden">
+    <main class="h-screen w-full flex flex-col md:flex-row p-8 md:p-24 selection:bg-blue-100 relative">
 
-<div id="app">
-  <header>
-    <span class="name">Anthony Kovari</span>
-    <div class="contact">
-      <a href="mailto:anthonykovari@gmail.com">anthonykovari@gmail.com</a>
-      <a href="https://github.com/anthonykovari" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/anthonykovari" target="_blank">LinkedIn</a>
-    </div>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a onclick="openModal('about')">About</a></li>
-      <li><a onclick="openModal('resume')">Resume</a></li>
-      <li><a onclick="openModal('projects')">Projects</a></li>
-      <li><a onclick="openModal('writings')">Writings</a></li>
-    </ul>
-  </nav>
-</div>
-
-<!-- Modal Overlay -->
-<div id="overlay">
-  <div class="modal-header">
-    <span class="modal-title" id="modalTitle"></span>
-    <button class="close-btn" onclick="closeModal()">×</button>
-  </div>
-  <div class="modal-body" id="modalBody"></div>
-</div>
-
-<script>
-  // Viewport height fix for mobile browsers
-  function setVh() {
-    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
-  }
-  setVh();
-  window.addEventListener('resize', setVh);
-  window.addEventListener('orientationchange', setVh);
-
-  // Modal content
-  const content = {
-    about: {
-      title: 'About',
-      body: `
-        <div class="about-text">
-          <p>Hi, I'm Anthony — a student and developer interested in machine learning, computer vision, and building things that work.</p>
-          <p>I'm currently studying at the University of Washington. My work spans from training deep learning models to shipping full-stack applications.</p>
-          <p>Outside of projects, I enjoy [your interests here].</p>
+      <!-- Left Column: Name and Contact -->
+      <div class="flex-1 flex flex-col md:justify-between">
+        <div>
+          <h1 class="text-[4rem] md:text-[6rem] lg:text-[6rem] font-normal leading-none tracking-tighter mb-8 break-words pointer-events-none">
+            Anthony Kovari
+          </h1>
         </div>
-      `
-    },
-    resume: {
-      title: 'Resume',
-      body: `
-        <p style="color:#444; font-size:0.95rem; line-height:1.8; margin-bottom:24px;">
-          My resume is available as a PDF.
+
+        <div class="space-y-1 text-base md:text-lg">
+          <p>
+            <a
+              href="mailto:anthonykovari@gmail.com"
+              class="hover:text-blue-600 transition-colors duration-75"
+            >
+              anthonykovari@gmail.com
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://github.com/anthonykovari"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-600 transition-colors duration-75"
+            >
+              github.com/anthonykovari
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://linkedin.com/in/anthonykovari"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-600 transition-colors duration-75"
+            >
+              linkedin.com/in/anthonykovari
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Navigation Links -->
+      <div class="flex-1 flex flex-col items-start md:items-end justify-end space-y-4 md:space-y-0 md:justify-between md:pt-8 md:pb-8">
+        <button
+          onclick="openModal('about')"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          About
+        </button>
+        <a
+          href="files/anthony-kovari-resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          Resume
+        </a>
+        <button
+          onclick="openModal('projects')"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          Projects
+        </button>
+        <button
+          onclick="openModal('writings')"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          Writings
+        </button>
+      </div>
+    </main>
+
+    <!-- Modal Content Templates -->
+    <template id="aboutTemplate">
+      <div class="p-8 md:p-12 space-y-5 text-lg md:text-xl leading-relaxed">
+        <p>
+          Hi, I'm Anthony — a computer vision and machine learning engineer. I build end-to-end systems: from training and fine-tuning models to deploying them in production via REST APIs, Docker, and edge hardware.
         </p>
-        <a class="resume-link" href="files/resume.pdf" target="_blank">Download Resume →</a>
-      `
-    },
-    projects: {
-      title: 'Projects',
-      body: `
-        <div class="project-list">
-          <div class="project-item">
-            <h3><a href="https://github.com/anthonykovari/eurosat_classification" target="_blank">Satellite Image Classifier</a></h3>
-            <div class="meta">PyTorch · FastAPI · Docker · 2025</div>
-            <p>Fine-tuned ResNet-18 on 27,000 labeled satellite images to classify land use across 10 categories, achieving 97–99% per-class validation accuracy. Served via a FastAPI backend and containerized with Docker.</p>
-            <video class="project-video" controls preload="metadata">
-              <source src="files/satellite-classifier-demo.mp4" type="video/mp4">
-            </video>
+        <p>
+          I've built aircraft defect classifiers for United Airlines using TensorFlow and ResNet-50, trained satellite image classifiers on the EuroSAT dataset with PyTorch achieving 97–99% per-class accuracy, and deployed edge AI wildlife monitors on Google Coral hardware in the field.
+        </p>
+        <p>
+          I graduated from Michigan State University in 2023 with a B.S. in Computer Science and a minor in Chinese. While there, I grew Engineers For A Sustainable World from 3 members to over 100 as chapter president.
+        </p>
+        <p>
+          I speak English and Mandarin. Feel free to reach out at my email!
+        </p>
+      </div>
+    </template>
+
+    <template id="writingsTemplate">
+      <div class="p-8">
+        <p class="text-base text-gray-400">Nothing here yet.</p>
+      </div>
+    </template>
+
+    <template id="projectsTemplate">
+      <div class="p-8 flex flex-wrap justify-center gap-8">
+        <a
+          href="satellite-classifier.html"
+          class="group flex flex-col items-center text-center space-y-2 max-w-[120px]"
+        >
+          <div class="w-16 h-20 bg-white border-2 border-black relative group-hover:border-blue-600 transition-colors flex items-center justify-center">
+            <div class="absolute top-2 left-2 right-2 bottom-2 border border-black group-hover:border-blue-600 transition-colors"></div>
+            <span class="text-2xl group-hover:text-blue-600 transition-colors">🛰️</span>
           </div>
-        </div>
-      `
-    },
-    writings: {
-      title: 'Writings',
-      body: `
-        <div class="writing-list">
-          <div class="writing-item">
-            <a href="#">Nothing here yet.</a>
+          <span class="text-xs group-hover:text-blue-600 w-full px-1 break-words">Satellite Image Classifier</span>
+        </a>
+        <a
+          href="wildlife-ai.html"
+          class="group flex flex-col items-center text-center space-y-2 max-w-[120px]"
+        >
+          <div class="w-16 h-20 bg-white border-2 border-black relative group-hover:border-blue-600 transition-colors flex items-center justify-center">
+            <div class="absolute top-2 left-2 right-2 bottom-2 border border-black group-hover:border-blue-600 transition-colors"></div>
+            <span class="text-2xl group-hover:text-blue-600 transition-colors">🐦</span>
           </div>
+          <span class="text-xs group-hover:text-blue-600 w-full px-1 break-words">Wildlife AI Monitor</span>
+        </a>
+        <a
+          href="aircraft-qa.html"
+          class="group flex flex-col items-center text-center space-y-2 max-w-[120px]"
+        >
+          <div class="w-16 h-20 bg-white border-2 border-black relative group-hover:border-blue-600 transition-colors flex items-center justify-center">
+            <div class="absolute top-2 left-2 right-2 bottom-2 border border-black group-hover:border-blue-600 transition-colors"></div>
+            <span class="text-2xl group-hover:text-blue-600 transition-colors">✈️</span>
+          </div>
+          <span class="text-xs group-hover:text-blue-600 w-full px-1 break-words">Aircraft Appearance QA</span>
+        </a>
+      </div>
+    </template>
+
+    <!-- Modal Overlay -->
+    <div
+      id="modalOverlay"
+      class="modal-overlay fixed inset-0 z-40 items-center justify-center p-4"
+    >
+      <div
+        class="w-full max-w-3xl bg-white border border-black relative z-50 overflow-hidden flex flex-col"
+      >
+        <div class="flex items-center justify-between p-3 border-b border-black">
+          <span id="modalTitle" class="text-base capitalize"></span>
+          <button
+            onclick="closeModal()"
+            class="hover:text-blue-600 font-bold text-2xl px-2 leading-none"
+            aria-label="Close"
+          >
+            ×
+          </button>
         </div>
-      `
-    }
-  };
+        <div id="modalContent" class="overflow-auto">
+        </div>
+      </div>
+    </div>
 
-  const overlay = document.getElementById('overlay');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalBody = document.getElementById('modalBody');
+    <script>
+      function setViewportHeight() {
+        const vh = window.innerHeight;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        document.querySelector('main').style.height = `${vh}px`;
+      }
 
-  function openModal(section) {
-    const { title, body } = content[section];
-    modalTitle.textContent = title;
-    modalBody.innerHTML = body;
-    overlay.classList.add('active');
-    overlay.scrollTop = 0;
-  }
+      setViewportHeight();
+      window.addEventListener('resize', setViewportHeight);
+      window.addEventListener('orientationchange', setViewportHeight);
 
-  function closeModal() {
-    overlay.classList.remove('active');
-  }
+      function openModal(type) {
+        const overlay = document.getElementById('modalOverlay');
+        const title = document.getElementById('modalTitle');
+        const content = document.getElementById('modalContent');
 
-  // Close on click outside modal content
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
-  });
+        title.textContent = type;
 
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-</script>
+        const template = document.getElementById(type + 'Template');
+        content.innerHTML = '';
+        const clone = template.content.cloneNode(true);
+        content.appendChild(clone);
 
+        overlay.classList.add('active');
+      }
+
+      function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        overlay.classList.remove('active');
+        return false;
+      }
+
+      document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target.id === 'modalOverlay') {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+    </script>
 </body>
 </html>
