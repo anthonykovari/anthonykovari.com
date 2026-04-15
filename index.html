@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthony Kovari</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -75,7 +75,7 @@
 
         .nav-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 0.5rem;
             margin-bottom: 3rem;
         }
@@ -203,20 +203,16 @@
 
         .modal-content {
             overflow-y: auto;
-            padding: 1.5rem;
-            color: #bbb;
-            font-size: 0.82rem;
-            line-height: 1.85;
-            letter-spacing: 0.02em;
+            padding: 1.75rem 2rem;
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0;
         }
 
         .modal-content p + p {
-            margin-top: 1.25rem;
-        }
-
-        .modal-content p::before {
-            content: '// ';
-            color: #3a3a3a;
+            margin-top: 1.1rem;
         }
 
         /* Projects grid inside modal */
@@ -262,7 +258,7 @@
 
         @media (max-width: 600px) {
             main { padding: 2rem 1.5rem; }
-            .nav-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -279,7 +275,6 @@
             <button class="nav-item" onclick="openModal('about')">about</button>
             <a class="nav-item" href="files/anthony-kovari-resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>
             <button class="nav-item" onclick="openModal('projects')">projects</button>
-            <button class="nav-item" onclick="openModal('writings')">writings</button>
         </div>
 
         <p class="section-label">contact</p>
@@ -304,7 +299,7 @@
     <!-- Content Templates -->
     <template id="aboutTemplate">
         <p>Hi, I'm Anthony — a computer vision and machine learning engineer. I build end-to-end systems: from training and fine-tuning models to deploying them in production via REST APIs, Docker, and edge hardware.</p>
-        <p>I've built aircraft defect classifiers for United Airlines using TensorFlow and ResNet-50, trained satellite image classifiers on the EuroSAT dataset with PyTorch achieving 97–99% per-class accuracy, and deployed edge AI wildlife monitors on Google Coral hardware in the field.</p>
+        <p>I've built ML web apps for United Airlines QA using TensorFlow and ResNet-50, trained satellite image classifiers on the EuroSAT dataset with PyTorch achieving 97–99% per-class accuracy, and deployed a TensorFlow Lite bird tracking device on Google Coral hardware for a local nature center.</p>
         <p>I graduated from Michigan State University in 2023 with a B.S. in Computer Science and a minor in Chinese. While there, I grew Engineers For A Sustainable World from 3 members to over 100 as chapter president.</p>
         <p>I speak English and am learning Mandarin. Feel free to reach out at my email!</p>
     </template>
@@ -317,9 +312,6 @@
         </div>
     </template>
 
-    <template id="writingsTemplate">
-        <p class="empty-note">// really? go look at my personal projects!</p>
-    </template>
 
     <script>
         function setViewportHeight() {

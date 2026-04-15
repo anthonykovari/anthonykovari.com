@@ -4,151 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satellite Image Classifier — Anthony Kovari</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html, body {
-            background: #0d0d0d;
-            color: #e0e0e0;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .scanlines {
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent 0px,
-                transparent 3px,
-                rgba(0,0,0,0.12) 3px,
-                rgba(0,0,0,0.12) 4px
-            );
-            pointer-events: none;
-            z-index: 100;
-        }
+        html, body { font-family: 'Inter', sans-serif; background: #fff; color: #111; }
 
         .container {
-            max-width: 860px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 3rem 4rem;
+            padding: 4rem 2rem;
         }
 
         .back-link {
             display: inline-block;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            color: #555;
+            font-size: 0.8rem;
+            color: #888;
             text-decoration: none;
             margin-bottom: 3rem;
             transition: color 0.1s;
         }
+        .back-link:hover { color: #111; }
 
-        .back-link::before {
-            content: '< ';
-            color: #4af626;
-        }
-
-        .back-link:hover { color: #4af626; }
-
-        .prompt-line {
-            font-size: 0.7rem;
-            color: #4af626;
-            letter-spacing: 0.05em;
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
             margin-bottom: 0.5rem;
         }
 
-        h1 {
-            font-size: clamp(1.75rem, 4vw, 2.75rem);
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 0.75rem;
-        }
-
         .meta {
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            color: #aaa;
             margin-bottom: 2.5rem;
         }
 
-        .meta::before {
-            content: '// ';
-            color: #333;
-        }
-
-        .description {
-            font-size: 0.82rem;
-            line-height: 1.85;
-            color: #bbb;
-            letter-spacing: 0.02em;
-            margin-bottom: 2rem;
-        }
-
-        .description::before {
-            content: '// ';
-            color: #3a3a3a;
-        }
-
-        .section-label {
-            font-size: 0.6rem;
-            color: #4af626;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.6rem;
+        p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #444;
+            margin-bottom: 1.25rem;
         }
 
         .repo-link {
             display: inline-block;
-            font-size: 0.72rem;
-            color: #555;
+            font-size: 0.82rem;
+            color: #888;
             text-decoration: none;
-            letter-spacing: 0.05em;
             margin-bottom: 2.5rem;
             transition: color 0.1s;
         }
-
-        .repo-link::before {
-            content: '# ';
-            color: #333;
-        }
-
-        .repo-link:hover { color: #4af626; }
+        .repo-link:hover { color: #111; }
 
         video {
             width: 100%;
             display: block;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #eee;
         }
 
-        @media (max-width: 600px) {
-            .container { padding: 2rem 1.5rem; }
+        .media-label {
+            font-size: 0.7rem;
+            color: #bbb;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
-    <div class="scanlines"></div>
     <div class="container">
 
-        <a href="index.html" class="back-link">back</a>
+        <a href="index.html" class="back-link">← Back</a>
 
-        <p class="prompt-line">anthony@kovari:~$ cat satellite-classifier.txt</p>
-        <h1>Satellite Image<br>Classifier</h1>
+        <h1>Satellite Image Classifier</h1>
         <p class="meta">PyTorch · FastAPI · Docker · 2025</p>
 
-        <p class="description">Fine-tuned ResNet-18 on 27,000 labeled satellite images to classify land use across 10 categories, achieving 97–99% per-class validation accuracy. Served via a FastAPI backend and containerized with Docker.</p>
+        <p>Fine-tuned ResNet-18 on 27,000 labeled satellite images to classify land use across 10 categories, achieving 97–99% per-class validation accuracy. Served via a FastAPI backend and containerized with Docker.</p>
 
-        <p class="section-label">repository</p>
-        <a
-          href="https://github.com/anthonykovari/eurosat_classification"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="repo-link"
-        >github.com/anthonykovari/eurosat_classification</a>
+        <a href="https://github.com/anthonykovari/eurosat_classification" target="_blank" rel="noopener noreferrer" class="repo-link">github.com/anthonykovari/eurosat_classification ↗</a>
 
-        <p class="section-label">demo</p>
+        <p class="media-label">Demo</p>
         <video controls preload="metadata">
             <source src="files/satellite-classifier-demo.mp4" type="video/mp4">
         </video>
