@@ -4,348 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthony Kovari</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html, body {
-            height: 100%;
-            background: #0d0d0d;
-            color: #e0e0e0;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .scanlines {
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent 0px,
-                transparent 3px,
-                rgba(0,0,0,0.12) 3px,
-                rgba(0,0,0,0.12) 4px
-            );
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        main {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 3rem 4rem;
-            max-width: 900px;
-        }
-
-        .prompt-line {
-            color: #4af626;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 5.5rem);
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.03em;
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-
-        h1 span.green {
-            color: #4af626;
-        }
-
-        .tagline {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 3rem;
-            letter-spacing: 0.1em;
-        }
-
-        .section-label {
-            font-size: 0.65rem;
-            color: #4af626;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .nav-item {
-            border: 1px solid #2a2a2a;
-            padding: 1rem;
-            text-decoration: none;
-            color: #e0e0e0;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            transition: all 0.1s;
-            cursor: pointer;
-            background: none;
-            font-family: 'JetBrains Mono', monospace;
-            text-align: left;
-        }
-
-        .nav-item::before {
-            content: '> ';
-            color: #4af626;
-        }
-
-        .nav-item:hover {
-            border-color: #4af626;
-            color: #4af626;
-            background: rgba(74, 246, 38, 0.04);
-        }
-
-        .contact {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .contact a {
-            font-size: 0.75rem;
-            color: #555;
-            text-decoration: none;
-            letter-spacing: 0.05em;
-            transition: color 0.1s;
-        }
-
-        .contact a::before {
-            content: '# ';
-            color: #333;
-        }
-
-        .contact a:hover {
-            color: #4af626;
-        }
-
-        .blink {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.75);
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-box {
-            width: 100%;
-            max-width: 700px;
-            max-height: 85vh;
-            background: #111;
-            border: 1px solid #2a2a2a;
-            display: flex;
-            flex-direction: column;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .modal-titlebar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.6rem 1rem;
-            border-bottom: 1px solid #2a2a2a;
-            background: #161616;
-        }
-
-        .modal-title {
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            color: #4af626;
-        }
-
-        .modal-title::before {
-            content: 'anthony@kovari:~$ cat ';
-            color: #555;
-        }
-
-        .modal-close {
-            background: none;
-            border: 1px solid #333;
-            color: #666;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            padding: 0.2rem 0.6rem;
-            cursor: pointer;
-            transition: all 0.1s;
-        }
-
-        .modal-close:hover {
-            border-color: #4af626;
-            color: #4af626;
-        }
-
-        .modal-content {
-            overflow-y: auto;
-            padding: 1.75rem 2rem;
-            color: #ccc;
-            font-size: 0.95rem;
-            line-height: 1.8;
             font-family: 'Inter', sans-serif;
-            letter-spacing: 0;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
         }
-
-        .modal-content p + p {
-            margin-top: 1.1rem;
+        main {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            touch-action: manipulation;
         }
-
-        /* Projects grid inside modal */
-        .projects-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 0.25rem 0;
+        .modal-overlay {
+            display: none !important;
         }
-
-        .project-card {
-            border: 1px solid #2a2a2a;
-            padding: 1rem 1.25rem;
-            text-decoration: none;
-            color: #bbb;
-            font-size: 0.75rem;
-            letter-spacing: 0.08em;
-            transition: all 0.1s;
-            flex: 1 1 180px;
-        }
-
-        .project-card::before {
-            display: block;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card.satellite::before { content: '🛰️'; }
-        .project-card.wildlife::before  { content: '🐦'; }
-        .project-card.aircraft::before  { content: '✈️'; }
-
-        .project-card:hover {
-            border-color: #4af626;
-            color: #4af626;
-            background: rgba(74, 246, 38, 0.04);
-        }
-
-        .empty-note {
-            color: #3a3a3a;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-        }
-
-        @media (max-width: 600px) {
-            main { padding: 2rem 1.5rem; }
-            .nav-grid { grid-template-columns: repeat(3, 1fr); }
+        .modal-overlay.active {
+            display: flex !important;
         }
     </style>
 </head>
-<body>
-    <div class="scanlines"></div>
+<body class="bg-white text-black antialiased overflow-hidden">
+    <main class="h-screen w-full flex flex-col md:flex-row p-8 md:p-24 selection:bg-blue-100 relative">
 
-    <main>
-        <div class="prompt-line">anthony@kovari:~$</div>
-        <h1>Anthony<br><span class="green">Kovari</span><span class="blink">_</span></h1>
-        <p class="tagline">// computer vision &amp; machine learning engineer</p>
-
-        <p class="section-label">navigate</p>
-        <div class="nav-grid">
-            <button class="nav-item" onclick="openModal('about')">about</button>
-            <a class="nav-item" href="files/anthony-kovari-resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>
-            <button class="nav-item" onclick="openModal('projects')">projects</button>
+      <!-- Left Column: Name and Contact -->
+      <div class="flex-1 flex flex-col md:justify-between">
+        <div>
+          <h1 class="text-[4rem] md:text-[6rem] lg:text-[6rem] font-normal leading-none tracking-tighter mb-8 break-words pointer-events-none">
+            Anthony Kovari
+          </h1>
         </div>
 
-        <p class="section-label">contact</p>
-        <div class="contact">
-            <a href="mailto:anthonykovari@gmail.com">anthonykovari@gmail.com</a>
-            <a href="https://github.com/anthonykovari" target="_blank" rel="noopener noreferrer">github.com/anthonykovari</a>
-            <a href="https://linkedin.com/in/anthonykovari" target="_blank" rel="noopener noreferrer">linkedin.com/in/anthonykovari</a>
+        <div class="space-y-1 text-base md:text-lg">
+          <p>
+            <a
+              href="mailto:anthonykovari@gmail.com"
+              class="hover:text-blue-600 transition-colors duration-75"
+            >
+              anthonykovari@gmail.com
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://github.com/anthonykovari"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-600 transition-colors duration-75"
+            >
+              github.com/anthonykovari
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://linkedin.com/in/anthonykovari"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-600 transition-colors duration-75"
+            >
+              linkedin.com/in/anthonykovari
+            </a>
+          </p>
         </div>
+      </div>
+
+      <!-- Right Column: Navigation Links -->
+      <div class="flex-1 flex flex-col items-start md:items-end justify-end space-y-4 md:space-y-0 md:justify-between md:pt-8 md:pb-8">
+        <button
+          onclick="openModal('about')"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          About
+        </button>
+        <a
+          href="files/anthony-kovari-resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          Resume
+        </a>
+        <button
+          onclick="openModal('projects')"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          Projects
+        </button>
+        <a
+          href="stocks.html"
+          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
+        >
+          Stocks
+        </a>
+      </div>
     </main>
 
-    <!-- Modal -->
-    <div id="modalOverlay" class="modal-overlay">
-        <div class="modal-box">
-            <div class="modal-titlebar">
-                <span class="modal-title" id="modalTitle"></span>
-                <button class="modal-close" onclick="closeModal()">[ x ]</button>
-            </div>
-            <div class="modal-content" id="modalContent"></div>
-        </div>
-    </div>
-
-    <!-- Content Templates -->
+    <!-- Modal Content Templates -->
     <template id="aboutTemplate">
-        <p>Hi, I'm Anthony — a computer vision and machine learning engineer. I build end-to-end systems: from training and fine-tuning models to deploying them in production via REST APIs, Docker, and edge hardware.</p>
-        <p>I've built ML web apps for United Airlines QA using TensorFlow and ResNet-50, trained satellite image classifiers on the EuroSAT dataset with PyTorch achieving 97–99% per-class accuracy, and deployed a TensorFlow Lite bird tracking device on Google Coral hardware for a local nature center.</p>
-        <p>I graduated from Michigan State University in 2023 with a B.S. in Computer Science and a minor in Chinese. While there, I grew Engineers For A Sustainable World from 3 members to over 100 as chapter president.</p>
-        <p>I speak English and am learning Mandarin. Feel free to reach out at my email!</p>
+      <div class="p-8 md:p-12">
+        <p class="text-lg md:text-xl leading-relaxed text-left">
+          Hi, I'm Anthony — a computer vision and machine learning engineer. I build end-to-end systems: from training and fine-tuning models to deploying them in production via REST APIs, Docker, and edge hardware.
+        </p>
+        <p class="text-lg md:text-xl leading-relaxed text-left mt-6">
+          I've built ML web apps for United Airlines QA using TensorFlow and ResNet-50, trained satellite image classifiers on the EuroSAT dataset with PyTorch achieving 97–99% per-class accuracy, and deployed a TensorFlow Lite bird tracking device on Google Coral hardware for a local nature center.
+        </p>
+        <p class="text-lg md:text-xl leading-relaxed text-left mt-6">
+          I graduated from Michigan State University in 2023 with a B.S. in Computer Science and a minor in Chinese. While there, I grew Engineers For A Sustainable World from 3 members to over 100 as chapter president.
+        </p>
+        <p class="text-lg md:text-xl leading-relaxed text-left mt-6">
+          I speak English and am learning Mandarin. Feel free to reach out at my email!
+        </p>
+      </div>
     </template>
 
     <template id="projectsTemplate">
-        <div class="projects-grid">
-            <a href="satellite-classifier.html" class="project-card satellite">Satellite Image Classifier</a>
-            <a href="wildlife-ai.html" class="project-card wildlife">Wildlife AI Monitor</a>
-            <a href="aircraft-qa.html" class="project-card aircraft">Aircraft Appearance QA</a>
-        </div>
+      <div class="p-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+        <a
+          href="satellite-classifier.html"
+          class="group flex flex-col items-center text-center space-y-2 max-w-[120px]"
+        >
+          <div class="w-16 h-20 bg-white border-2 border-black relative group-hover:border-blue-600 transition-colors flex items-center justify-center">
+            <div class="absolute top-2 left-2 right-2 bottom-2 border border-black group-hover:border-blue-600 transition-colors"></div>
+            <span class="text-2xl group-hover:text-blue-600 transition-colors">🛰️</span>
+          </div>
+          <span class="text-xs group-hover:text-blue-600 w-full px-1 break-words">Computer Vision - Satellite Image Classification</span>
+        </a>
+        <a
+          href="wildlife-ai.html"
+          class="group flex flex-col items-center text-center space-y-2 max-w-[120px]"
+        >
+          <div class="w-16 h-20 bg-white border-2 border-black relative group-hover:border-blue-600 transition-colors flex items-center justify-center">
+            <div class="absolute top-2 left-2 right-2 bottom-2 border border-black group-hover:border-blue-600 transition-colors"></div>
+            <span class="text-2xl group-hover:text-blue-600 transition-colors">🐦</span>
+          </div>
+          <span class="text-xs group-hover:text-blue-600 w-full px-1 break-words">Edge AI - Track Invasive and Endangered Birds</span>
+        </a>
+        <a
+          href="aircraft-qa.html"
+          class="group flex flex-col items-center text-center space-y-2 max-w-[120px]"
+        >
+          <div class="w-16 h-20 bg-white border-2 border-black relative group-hover:border-blue-600 transition-colors flex items-center justify-center">
+            <div class="absolute top-2 left-2 right-2 bottom-2 border border-black group-hover:border-blue-600 transition-colors"></div>
+            <span class="text-2xl group-hover:text-blue-600 transition-colors">✈️</span>
+          </div>
+          <span class="text-xs group-hover:text-blue-600 w-full px-1 break-words">ML Capstone - United Airlines Aircraft QA</span>
+        </a>
+      </div>
     </template>
 
+    <!-- Modal Overlay -->
+    <div
+      id="modalOverlay"
+      class="modal-overlay fixed inset-0 z-40 items-center justify-center p-4"
+    >
+      <div
+        class="w-full max-w-3xl bg-white border border-black relative z-50 overflow-hidden flex flex-col"
+      >
+        <div class="flex items-center justify-between p-3 border-b border-black">
+          <span id="modalTitle" class="text-base capitalize"></span>
+          <button
+            onclick="closeModal()"
+            class="hover:text-blue-600 font-bold text-2xl px-2 leading-none"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <div id="modalContent" class="overflow-auto max-h-[80vh]">
+        </div>
+      </div>
+    </div>
 
     <script>
-        function setViewportHeight() {
-            document.querySelector('main').style.minHeight = window.innerHeight + 'px';
+      function setViewportHeight() {
+        const vh = window.innerHeight;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        document.querySelector('main').style.height = `${vh}px`;
+      }
+
+      setViewportHeight();
+      window.addEventListener('resize', setViewportHeight);
+      window.addEventListener('orientationchange', setViewportHeight);
+
+      function openModal(type) {
+        const overlay = document.getElementById('modalOverlay');
+        const title = document.getElementById('modalTitle');
+        const content = document.getElementById('modalContent');
+
+        title.textContent = type;
+
+        const template = document.getElementById(type + 'Template');
+        content.innerHTML = '';
+        const clone = template.content.cloneNode(true);
+        content.appendChild(clone);
+
+        overlay.classList.add('active');
+      }
+
+      function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        overlay.classList.remove('active');
+        return false;
+      }
+
+      document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target.id === 'modalOverlay') {
+          closeModal();
         }
-        setViewportHeight();
-        window.addEventListener('resize', setViewportHeight);
-        window.addEventListener('orientationchange', setViewportHeight);
+      });
 
-        function openModal(type) {
-            const overlay = document.getElementById('modalOverlay');
-            const title   = document.getElementById('modalTitle');
-            const content = document.getElementById('modalContent');
-
-            title.textContent = type + '.txt';
-
-            const template = document.getElementById(type + 'Template');
-            content.innerHTML = '';
-            content.appendChild(template.content.cloneNode(true));
-
-            overlay.classList.add('active');
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          closeModal();
         }
-
-        function closeModal() {
-            document.getElementById('modalOverlay').classList.remove('active');
-        }
-
-        document.getElementById('modalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
-        });
+      });
     </script>
 </body>
 </html>

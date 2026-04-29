@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aircraft Appearance Assessment Tool — Anthony Kovari</title>
+    <title>ML Capstone - United Airlines Aircraft QA — Anthony Kovari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +25,7 @@
             margin-bottom: 3rem;
             transition: color 0.1s;
         }
-        .back-link:hover { color: #111; }
+        .back-link:hover { color: #2563eb; }
 
         h1 {
             font-size: clamp(2rem, 5vw, 3rem);
@@ -54,7 +56,7 @@
             margin-bottom: 2.5rem;
             transition: color 0.1s;
         }
-        .repo-link:hover { color: #111; }
+        .repo-link:hover { color: #2563eb; }
 
         img {
             width: 100%;
@@ -76,12 +78,12 @@
 
         <a href="index.html" class="back-link">← Back</a>
 
-        <h1>Aircraft Appearance Assessment Tool</h1>
-        <p class="meta">React · Python · TensorFlow · United Airlines · 2023</p>
+        <h1>Machine Learning Senior Capstone — United Airlines</h1>
+        <p class="meta">TensorFlow · ResNet-50 · React · Python · Flask · Firebase · Docker · Jan. 2023 – May 2023</p>
 
-        <p>Developed a machine learning web app for the United Airlines QA team, leveraging TensorFlow to automate image classification from Gmail and Twitter — reducing manual QA time from hours to seconds.</p>
-        <p>Built a dashboard with 3 custom CNN models (ResNet-50 with image augmentation) to classify images as garbage, interior, or exterior and assess aircraft appearance scores. Designed ETL/ELT pipelines using Python and the Tweepy API to feed data into the models.</p>
-        <p>Deployed a React frontend with a Flask/Firebase backend for scalable architecture. Containerized with Docker in an Agile Scrum environment.</p>
+        <p>Built a machine learning web app that scored plane interiors/exteriors on wear & tear and informed repair teams when defects were found, reducing manual QA time from hours to seconds.</p>
+        <p>Utilized TensorFlow, ResNet-50, and image augmentation to build three custom convolutional neural networks that powered the aircraft image classifier. Created the UI using React, built the backend with Python/Flask/Firebase, and containerized it with Docker.</p>
+        <p>Built an ETL/ELT data pipeline to ingest images from emails and tweets for classification using the Python Twitter and Gmail APIs.</p>
 
         <a href="https://github.com/anthonykovari/CSE498-UAQA-GHUB" target="_blank" rel="noopener noreferrer" class="repo-link">github.com/anthonykovari/CSE498-UAQA-GHUB ↗</a>
 

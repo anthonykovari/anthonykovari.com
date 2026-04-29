@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satellite Image Classifier — Anthony Kovari</title>
+    <title>Computer Vision - Satellite Image Classification — Anthony Kovari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +25,7 @@
             margin-bottom: 3rem;
             transition: color 0.1s;
         }
-        .back-link:hover { color: #111; }
+        .back-link:hover { color: #2563eb; }
 
         h1 {
             font-size: clamp(2rem, 5vw, 3rem);
@@ -54,7 +56,7 @@
             margin-bottom: 2.5rem;
             transition: color 0.1s;
         }
-        .repo-link:hover { color: #111; }
+        .repo-link:hover { color: #2563eb; }
 
         video {
             width: 100%;
@@ -76,10 +78,11 @@
 
         <a href="index.html" class="back-link">← Back</a>
 
-        <h1>Satellite Image Classifier</h1>
-        <p class="meta">PyTorch · FastAPI · Docker · 2025</p>
+        <h1>Computer Vision — Satellite Image Classification</h1>
+        <p class="meta">PyTorch · FastAPI · Docker · ResNet-18 · EuroSAT</p>
 
-        <p>Fine-tuned ResNet-18 on 27,000 labeled satellite images to classify land use across 10 categories, achieving 97–99% per-class validation accuracy. Served via a FastAPI backend and containerized with Docker.</p>
+        <p>Built an end-to-end machine learning system to classify satellite imagery by land use.</p>
+        <p>Trained ResNet-18 image recognition model on the EuroSAT satellite dataset to identify land-use categories. Containerized the PyTorch / FastAPI with Docker.</p>
 
         <a href="https://github.com/anthonykovari/eurosat_classification" target="_blank" rel="noopener noreferrer" class="repo-link">github.com/anthonykovari/eurosat_classification ↗</a>
 

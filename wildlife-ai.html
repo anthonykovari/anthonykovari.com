@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wildlife AI Monitor — Anthony Kovari</title>
+    <title>Edge AI - Track Invasive and Endangered Birds — Anthony Kovari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +25,7 @@
             margin-bottom: 3rem;
             transition: color 0.1s;
         }
-        .back-link:hover { color: #111; }
+        .back-link:hover { color: #2563eb; }
 
         h1 {
             font-size: clamp(2rem, 5vw, 3rem);
@@ -64,6 +66,14 @@
             color: #111;
             font-weight: 500;
         }
+
+        .media-label {
+            font-size: 0.7rem;
+            color: #bbb;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -71,16 +81,20 @@
 
         <a href="index.html" class="back-link">← Back</a>
 
-        <h1>Wildlife AI Monitor</h1>
-        <p class="meta">TensorFlow Lite · Google Coral · Edge TPU · NVIDIA Jetson · 2023</p>
+        <h1>Edge Artificial Intelligence — Track Invasive and Endangered Birds</h1>
+        <p class="meta">TensorFlow Lite · Google Coral · Edge TPU · NVIDIA Jetson</p>
 
-        <p>Developed and deployed an AI-powered bird tracking device to monitor endangered and invasive species for a local nature center. Implemented a TensorFlow Lite BirdNet model on a Google Coral Board with an Edge TPU, optimizing real-time acoustic classification in a Linux environment.</p>
+        <p>Deployed a TensorFlow Lite BirdNet model on a Google Coral Board with an Edge TPU, building a solar-powered edge device that autonomously identifies bird species in the wild. Deployed classroom demonstrations on a NVIDIA Jensen Board.</p>
+        <p>Integrated the device with a citizen science bird database, enabling real-time wildlife sightings to be logged and contributed to broader ecological research.</p>
+
+        <p class="media-label">Device</p>
+        <img src="files/a sustainable sound.jpg" alt="Edge AI bird tracking device" style="width:100%;display:block;border:1px solid #eee;margin-bottom:2.5rem;">
 
         <div class="specs">
-            <p class="spec-row"><strong>Hardware:</strong> Google Coral Dev Board (Edge TPU)</p>
-            <p class="spec-row"><strong>Model:</strong> BirdNet (TensorFlow Lite, acoustic bird ID)</p>
-            <p class="spec-row"><strong>OS:</strong> Linux</p>
-            <p class="spec-row"><strong>Use case:</strong> Monitoring endangered and invasive species for a local nature center</p>
+            <p class="spec-row"><strong>Hardware:</strong> Google Coral Dev Board (Edge TPU), NVIDIA Jensen Board</p>
+            <p class="spec-row"><strong>Model:</strong> BirdNet (TensorFlow Lite)</p>
+            <p class="spec-row"><strong>Power:</strong> Solar-powered edge device</p>
+            <p class="spec-row"><strong>Integration:</strong> Citizen science bird database for real-time wildlife sighting logs</p>
         </div>
 
     </div>

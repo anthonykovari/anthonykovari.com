@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing — Anthony Kovari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: 'Inter', sans-serif; background: #fff; color: #111; }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            transition: color 0.1s;
+        }
+        .back-link:hover { color: #2563eb; }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 3rem;
+        }
+
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .post-item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 1.25rem 0;
+            border-top: 1px solid #e5e5e5;
+            text-decoration: none;
+            color: #111;
+            transition: color 0.075s;
+        }
+        .post-item:last-child {
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .post-item:hover {
+            color: #2563eb;
+        }
+
+        .post-title {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .post-date {
+            font-size: 0.8rem;
+            color: #aaa;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: color 0.075s;
+        }
+        .post-item:hover .post-date {
+            color: #93c5fd;
+        }
+
+        .empty {
+            font-size: 0.9rem;
+            color: #aaa;
+            padding-top: 1.25rem;
+            border-top: 1px solid #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <a href="index.html" class="back-link">← Back</a>
+
+        <h1>Writing</h1>
+
+        <div class="post-list">
+            <!-- Add posts here. Copy the block below for each new post:
+
+            <a href="posts/your-post-slug.html" class="post-item">
+                <span class="post-title">Your Post Title</span>
+                <span class="post-date">Month YYYY</span>
+            </a>
+
+            -->
+            <p class="empty">No posts yet.</p>
+        </div>
+
+    </div>
+</body>
+</html>
