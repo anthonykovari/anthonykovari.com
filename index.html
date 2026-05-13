@@ -24,102 +24,16 @@
             overflow: hidden;
             touch-action: manipulation;
         }
-        .modal-overlay {
-            display: none !important;
-        }
-        .modal-overlay.active {
-            display: flex !important;
-        }
     </style>
 </head>
 <body class="bg-white text-black antialiased overflow-hidden">
-    <main class="h-screen w-full flex flex-col md:flex-row p-8 md:p-24 selection:bg-blue-100 relative">
+    <main class="h-screen w-full flex flex-col justify-between p-8 md:p-24 selection:bg-blue-100">
 
-      <!-- Left Column: Name and Contact -->
-      <div class="flex-1 flex flex-col md:justify-between">
-        <div>
-          <h1 class="text-[4rem] md:text-[6rem] lg:text-[6rem] font-normal leading-none tracking-tighter mb-8 break-words pointer-events-none">
-            Anthony Kovari
-          </h1>
-        </div>
+      <h1 class="text-[4rem] md:text-[6rem] lg:text-[6rem] font-normal leading-none tracking-tighter break-words pointer-events-none">
+        Anthony Kovari
+      </h1>
 
-        <div class="space-y-1 text-base md:text-lg">
-          <p>
-            <a
-              href="mailto:anthonykovari@gmail.com"
-              class="hover:text-blue-600 transition-colors duration-75"
-            >
-              anthonykovari@gmail.com
-            </a>
-          </p>
-          <p>
-            <a
-              href="https://github.com/anthonykovari"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:text-blue-600 transition-colors duration-75"
-            >
-              github.com/anthonykovari
-            </a>
-          </p>
-          <p>
-            <a
-              href="https://linkedin.com/in/anthonykovari"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:text-blue-600 transition-colors duration-75"
-            >
-              linkedin.com/in/anthonykovari
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <!-- Right Column: Navigation Links -->
-      <div class="flex-1 flex flex-col items-start md:items-end justify-end space-y-4 md:space-y-0 md:justify-between md:pt-8 md:pb-8">
-        <button
-          onclick="openModal('about')"
-          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
-        >
-          About
-        </button>
-        <a
-          href="files/anthony-kovari-resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
-        >
-          Resume
-        </a>
-        <button
-          onclick="openModal('projects')"
-          class="text-3xl md:text-4xl lg:text-5xl font-normal underline decoration-1 underline-offset-[12px] hover:text-blue-600 hover:decoration-blue-600 transition-all duration-75 cursor-pointer"
-        >
-          Projects
-        </button>
-      </div>
-    </main>
-
-    <!-- Modal Content Templates -->
-    <template id="aboutTemplate">
-      <div class="p-8 md:p-12">
-        <p class="text-lg md:text-xl leading-relaxed text-left">
-          Hi, I'm Anthony — a computer scientist with a passion for making a positive difference in this world. I have built end-to-end systems: from training and fine-tuning models to deploying them in production via REST APIs, Docker, and edge hardware.
-        </p>
-        <p class="text-lg md:text-xl leading-relaxed text-left mt-6">
-          I've built ML web apps for United Airlines QA using TensorFlow and ResNet-50, trained satellite image classifiers on the EuroSAT dataset with PyTorch achieving 97–99% per-class accuracy, and deployed a TensorFlow Lite bird tracking device on Google Coral hardware for a local nature center.
-        </p>
-        <p class="text-lg md:text-xl leading-relaxed text-left mt-6">
-          I graduated from Michigan State University in 2023 with a B.S. in Computer Science and a minor in Chinese. While there, I grew Engineers For A Sustainable World from 3 members to over 100 as chapter president.
-        </p>
-        <p class="text-lg md:text-xl leading-relaxed text-left mt-6">
-          I speak English and am learning Mandarin. Feel free to reach out at my email!
-        </p>
-      </div>
-    </template>
-
-    <template id="projectsTemplate">
-      <div class="p-8 flex flex-wrap justify-center gap-8">
+      <div class="flex flex-wrap gap-8">
         <a
           href="satellite-classifier.html"
           class="group flex flex-col items-center text-center space-y-2 max-w-[120px]"
@@ -151,30 +65,39 @@
           <span class="text-xs group-hover:text-blue-600 w-full px-1 break-words">ML Capstone - United Airlines Aircraft QA</span>
         </a>
       </div>
-    </template>
 
-    <!-- Modal Overlay -->
-    <div
-      id="modalOverlay"
-      class="modal-overlay fixed inset-0 z-40 items-center justify-center p-4"
-    >
-      <div
-        class="w-full max-w-3xl bg-white border border-black relative z-50 overflow-hidden flex flex-col"
-      >
-        <div class="flex items-center justify-between p-3 border-b border-black">
-          <span id="modalTitle" class="text-base capitalize"></span>
-          <button
-            onclick="closeModal()"
-            class="hover:text-blue-600 font-bold text-2xl px-2 leading-none"
-            aria-label="Close"
+      <div class="space-y-1 text-base md:text-lg">
+        <p>
+          <a
+            href="mailto:anthonykovari@gmail.com"
+            class="hover:text-blue-600 transition-colors duration-75"
           >
-            ×
-          </button>
-        </div>
-        <div id="modalContent" class="overflow-auto max-h-[80vh]">
-        </div>
+            anthonykovari@gmail.com
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://github.com/anthonykovari"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-blue-600 transition-colors duration-75"
+          >
+            github.com/anthonykovari
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://linkedin.com/in/anthonykovari"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-blue-600 transition-colors duration-75"
+          >
+            linkedin.com/in/anthonykovari
+          </a>
+        </p>
       </div>
-    </div>
+
+    </main>
 
     <script>
       function setViewportHeight() {
@@ -186,39 +109,6 @@
       setViewportHeight();
       window.addEventListener('resize', setViewportHeight);
       window.addEventListener('orientationchange', setViewportHeight);
-
-      function openModal(type) {
-        const overlay = document.getElementById('modalOverlay');
-        const title = document.getElementById('modalTitle');
-        const content = document.getElementById('modalContent');
-
-        title.textContent = type;
-
-        const template = document.getElementById(type + 'Template');
-        content.innerHTML = '';
-        const clone = template.content.cloneNode(true);
-        content.appendChild(clone);
-
-        overlay.classList.add('active');
-      }
-
-      function closeModal() {
-        const overlay = document.getElementById('modalOverlay');
-        overlay.classList.remove('active');
-        return false;
-      }
-
-      document.getElementById('modalOverlay').addEventListener('click', function(e) {
-        if (e.target.id === 'modalOverlay') {
-          closeModal();
-        }
-      });
-
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          closeModal();
-        }
-      });
     </script>
 </body>
 </html>
