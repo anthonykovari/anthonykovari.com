@@ -28,8 +28,8 @@
     }
     #title-card h1 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
     #title-card p  { font-size: 0.75rem; color: #8b949e; line-height: 1.5; margin: 0; }
-    #back-link { display: block; font-size: 0.7rem; color: #58a6ff; text-decoration: none; margin-bottom: 8px; }
-    #back-link:hover { color: #79c0ff; }
+    .panel-link { display: block; font-size: 0.7rem; color: #58a6ff; text-decoration: none; margin-bottom: 8px; }
+    .panel-link:hover { color: #79c0ff; }
 
     #stats-card {
       top: 16px; left: 50%; transform: translateX(-50%);
@@ -152,9 +152,10 @@
 <div id="map"></div>
 
 <div class="panel" id="title-card">
-  <a href="satellite-classifier.html" id="back-link">← Back</a>
+  <a href="index.html" class="panel-link">← Back</a>
   <h1>Chicagoland Land Use</h1>
   <p>EuroSAT ResNet-18 on Sentinel-2 10 m RGB</p>
+  <a href="https://github.com/anthonykovari/eurosat_classification" target="_blank" rel="noopener noreferrer" class="panel-link" style="margin-top:6px;">GitHub →</a>
 </div>
 
 <div class="panel" id="stats-card">
